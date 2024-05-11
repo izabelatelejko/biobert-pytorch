@@ -3,6 +3,16 @@ This repository provides the PyTorch implementation of [BioBERT](https://academi
 You can easily use BioBERT with [transformers](https://github.com/huggingface/transformers).
 This project is supported by the members of [DMIS-Lab](https://dmis.korea.ac.kr/) @ Korea University including Jinhyuk Lee, Wonjin Yoon, Minbyul Jeong, Mujeen Sung, and Gangwoo Kim.
 
+## Setup on WSL
+
+1. Install [CUDA Toolkit 12.4](https://developer.nvidia.com/cuda-downloads?target_os=Windows) (choose OS Windows)
+2. Create venv with python=3.8 and activate
+3. Install torch
+```{sh}
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+```
+4. Install requirements.txt
+
 ## Installation
 ```bash
 # Install huggingface transformers
