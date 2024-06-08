@@ -3,6 +3,13 @@
 To train QA models with BioBERT-v1.1 (base), follow the description below.
 We preprocessed the BioASQ 7b (YesNo/Factoid) dataset to the SQuAD format as decribed in [Jeong et al, 2020](https://arxiv.org/abs/2007.00217).
 
+## ADDED: Task 7b description from [BIOASQ website](http://bioasq.org/participate/challenges_year_7)
+
+BioASQ Task 7b: Biomedical Semantic QA (Involves IR, QA, Summarization)
+Task 7b will use benchmark datasets containing training and test biomedical questions, in English, along with gold standard (reference) answers. The participants will have to respond to each test question with relevant concepts (from designated terminologies and ontologies), relevant articles (in English, from designated article repositories), relevant snippets (from the relevant articles), relevant RDF triples (from designated ontologies), exact answers (e.g., named entities in the case of factoid questions) and 'ideal' answers (English paragraph-sized summaries). 2747 training questions (that were used as dry-run or test questions in previous year) are already available, along with their gold standard answers (relevant concepts, articles, snippets, exact answers, summaries). At least 500 new test questions will be used this year. All the questions are constructed by biomedical experts from around Europe. 
+
+The test dataset of Task 7b will be released in five batches, each containing approximately 100 questions. The first batch will start on March 06, 2019. Separate winners will be announced for each batch. Participation in the task can be partial; for example, it is acceptable to participate in only some of the batches, to return only relevant articles (and no concepts, triples, article snippets), or to return only exact answers (or only `ideal' answers). System responses will be evaluated both automatically and manually.
+
 ## Models
 Besides `dmis-lab/biobert-base-cased-v1.1` and `dmis-lab/biobert-large-cased-v1.1`, we additionally provide two BioBERT models pre-trained on MNLI and SQuAD, respectively:
 - `dmis-lab/biobert-base-cased-v1.1-mnli`: BioBERT pre-trained on MNLI
