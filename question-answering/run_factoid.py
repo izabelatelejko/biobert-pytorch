@@ -209,6 +209,19 @@ def train(args, train_dataset, model, tokenizer):
             # model outputs are always tuple in transformers (see doc)
             loss = outputs[0]
 
+            if not os.path.exists(args.output_dir):
+                os.makedirs(args.output_dir)
+
+            loss_file = os.path.join(args.output_dir, "losses.txt")
+
+            if not os.path.exists(loss_file):
+                with open(loss_file, "w") as f:
+                    f.write("")
+
+            with open(loss_file, "a") as f:
+                f.write(f"{loss.item()}\n")
+
+
             if args.n_gpu > 1:
                 loss = loss.mean()  # mean() to average on multi-gpu parallel (not distributed) training
             if args.gradient_accumulation_steps > 1:

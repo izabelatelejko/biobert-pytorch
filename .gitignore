@@ -2,6 +2,7 @@ datasets/*
 question-answering/output/*
 question-answering/output-adam/*
 question-answering/output-rmsprop/*
+question-answering/output_test/*
 question-answering/__pycache__/*
 question-answering/cached_train_biobert-base-cased-v1.1_384
 question-answering/cached_dev_output_384
