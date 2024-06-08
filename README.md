@@ -105,31 +105,26 @@ class RMSprop(Optimizer1State):
 ```
 
 
-## Example
-For instance, to train BioBERT on the NER dataset (NCBI-disease), run as:
+## Example with QA
+For instance, to train BioBERT on the QA dataset, run as:
 
 ```bash
-# Pre-process NER datasets
-cd named-entity-recognition
-./preprocess.sh
+# Change dir
+cd question-answering
 
-# Choose dataset and run
-export DATA_DIR=../datasets/NER
-export ENTITY=NCBI-disease
-python run_ner.py \
-    --data_dir ${DATA_DIR}/${ENTITY} \
-    --labels ${DATA_DIR}/${ENTITY}/labels.txt \
-    --model_name_or_path dmis-lab/biobert-base-cased-v1.1 \
-    --output_dir output/${ENTITY} \
-    --max_seq_length 128 \
-    --num_train_epochs 3 \
-    --per_device_train_batch_size 32 \
-    --save_steps 1000 \
-    --seed 1 \
-    --do_train \
-    --do_eval \
-    --do_predict \
-    --overwrite_output_dir
+# Export variables
+export SAVE_DIR=./output
+export DATA_DIR=../datasets/QA/BioASQ
+export OFFICIAL_DIR=./scripts/bioasq_eval
+
+export BATCH_SIZE=12
+export LEARNING_RATE=8e-6
+export NUM_EPOCHS=3
+export MAX_LENGTH=384
+export SEED=0 
+
+# Run code (remember to choose optimizer)
+python run_factoid.py     --model_type bert     --model_name_or_path dmis-lab/biobert-base-cased-v1.1     --do_train     --train_file ${DATA_DIR}/BioASQ-train-factoid-7b.json     --per_gpu_train_batch_size ${BATCH_SIZE}     --learning_rate ${LEARNING_RATE}     --num_train_epochs ${NUM_EPOCHS}     --max_seq_length ${MAX_LENGTH}     --seed ${SEED}     --output_dir ${SAVE_DIR}    --optimizer AdamW
 ```
 
 Please see each directory for different examples. Currently, we provide
